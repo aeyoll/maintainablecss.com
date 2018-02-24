@@ -3,33 +3,33 @@ layout: chapter
 title: Introduction
 section: Preface
 permalink: /chapters/introduction/
-description: An introduction to MaintainableCSS, an approach to writing modular, scalable and of course maintainable CSS.
+description: Une introduction à MaintainableCSS, une approche de rédaction modulaire, évolutive et bien sûr maintenable CSS.
 ---
 
-MaintainableCSS is an approach to writing modular, scalable and maintainable CSS. Not only does this guide explain *how* to do this, but more importantly it explains *why*.
+MaintainableCSS est une approche pour écrire des CSS modulaires, évolutifs et maintenables. Non seulement ce guide explique *comment* faire cela, mais surtout il explique *pourquoi*.
 
-## There's nothing to download
+## Il n' y a rien à télécharger
 
-This is not a library or framework. It's a set of principles, guides and conventions to help you write CSS for small or large-scale websites.
+Ce n'est pas une bibliothèque ou un framework. Il s'agit d'un ensemble de principes, guides et conventions pour vous aider à rédiger des CSS pour les sites Web de petite ou grande taille.
 
-## What does maintainable mean?
+## Que signifie "maintenable" ?
 
-Maintainable CSS can be defined as being able to make styling changes, without worrying about accidentally causing problems elsewhere.
+Le CSS maintenable peut être défini comme étant capable d'effectuer des changements de style, sans se soucier de causer accidentellement des problèmes ailleurs.
 
-## What does scalable mean?
+## Que signifie "évolutif" ?
 
-Scalable CSS means that as CSS increases in size, it's still easy to maintain. If you've ever inherited a large CSS codebase, and been afraid to make changes, you'll sympathise with this.
+Le CSS évolutif signifie qu'au fur et à mesure que la taille du CSS augmente, il est toujours facile à maintenir. Si vous avez déjà hérité d'une base de code CSS volumineuse, et si vous avez eu peur d'apporter des changements, vous sympathiserez avec cela.
 
-## What does modular mean?
+## Que signifie modularité ?
 
-A module is a distinct, independent unit that can be combined with other modules to form a more complex structure. In a living room, we can consider the TV, the sofa and the wall art to be modules, all coming together to create a room.
+Un module est une unité distincte et indépendante qui peut être combinée avec d'autres modules pour former une structure plus complexe. Dans un salon, on peut considérer la télévision, le canapé et l'art mural comme des modules, tous réunis pour créer une pièce.
 
-If we take one of the units away, the others still work. We don't need the TV to be able to sit on the sofa etc. In a website the header, registration form, shopping basket, article, product list, navigation and homepage promo can all be considered to be modules.
+Si on enlève une des unités, les autres fonctionnent encore. On n' a pas besoin de la télé pour s'asseoir sur le canapé etc. Dans un site web, l'en-tête, le formulaire d'inscription, le panier d'achat, l'article, la liste de produits, la navigation et la promotion de la page d'accueil peuvent tous être considérés comme des modules.
 
-## Is this for you?
+## C'est pour toi ?
 
-If you've ever experienced pain when writing or maintaining CSS, then you'll find useful information in this book. And if you work in a team, this book can serve as documentation.
+Si vous avez déjà éprouvé de la douleur lorsque vous écrivez ou maintenez des CSS, vous trouverez des informations utiles dans ce livre. Et si vous travaillez en équipe, ce livre peut servir de documentation.
 
-## Is this hard to learn?
+## C'est dur à apprendre ?
 
-No. You can read this in under 20 minutes which includes the rationale behind the approach. Implementing it takes less than a minute.
+Non. Vous pouvez le lire en moins de 20 minutes, ce qui comprend la raison d'être de l'approche. La mise en œuvre prend moins d'une minute..
