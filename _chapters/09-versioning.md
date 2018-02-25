@@ -3,10 +3,10 @@ layout: chapter
 title: Versioning
 section: Extras
 permalink: /chapters/versioning/
-description: Learn how MaintainableCSS makes it really easy to upgrade and AB test modules for rapidly evolving websites.
+description: Découvrez comment MaintainableCSS facilite la mise à niveau et les modules de test AB pour les sites Web en évolution rapide.
 ---
 
-We may, for example, want to A/B test two different versions of a module to see which works best. To do this, we need to duplicate the module and give it a unique name. For example, if we want to test two different baskets, the CSS might be as follows:
+Nous pouvons, par exemple, vouloir tester deux versions différentes d'un module pour voir lequel fonctionne le mieux. Pour ce faire, nous devons dupliquer le module et lui donner un nom unique. Par exemple, si nous voulons tester deux paniers différents, le CSS peut être comme suit :
 
 	/* existing module (variant A) */
 	.basket {}
@@ -18,4 +18,4 @@ We may, for example, want to A/B test two different versions of a module to see 
 
 	.basket2-title {}
 
-This way we can maintain two versions during testing until we settle on the best one. And, once we do, it's easy to discard the redundant module as they are not intertwined. Good code is easy to delete.
+De cette façon, nous pouvons maintenir deux versions pendant les tests jusqu'à ce que nous nous entendions sur la meilleure. Et une fois que nous l'avons fait, il est facile de se débarrasser du module redondant car il n'est pas entrelacé. Un bon code est facile à effacer.
