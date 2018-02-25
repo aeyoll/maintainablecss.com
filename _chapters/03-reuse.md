@@ -3,60 +3,60 @@ layout: chapter
 title: Reuse
 section: Background
 permalink: /chapters/reuse/
-description: Learn why avoiding reuse and embracing repetition makes CSS maintenance easier.
+description: Apprenez pourquoi le fait d'éviter la réutilisation et d'adopter la répétition facilite la maintenance CSS.
 ---
 
-As Harry Roberts says, “DRY is often misinterpreted as the necessity to never repeat the exact same thing twice. This is impractical and usually counterproductive, and can lead to forced abstractions, over-thought and over-engineered code.”
+Comme le dit Harry Roberts, "DRY (don't repeat yourself) est souvent mal interprété comme la nécessité de ne jamais répéter exactement la même chose deux fois. C'est peu pratique et généralement contre-productif, et cela peut mener à des abstractions forcées, à un code trop réfléchi et trop élaboré."
 
-This forced abstraction, over-thought and over-engineered code often results in visual and atomic classes. We know how painful they are because we discussed them thoroughly in [semantics](/chapters/semantics/). Mixins may also be a problem which we'll discuss shortly.
+Cette abstraction forcée, cet excès de réflexion et ce code surinventé aboutissent souvent à des classes visuelles et atomiques. Nous savons à quel point ils sont douloureux parce que nous en avons discuté en profondeur dans le chapitre [sémantiques](/chapters/semantics/). Les mixins peuvent aussi poser problème, dont nous discuterons sous peu.
 
-Whilst we often try to abstract CSS too much too soon, there are obviously going to be times when reuse makes sense. The question must be answered, *how can we reuse a style?*
+Bien que nous essayons souvent d'abstraire les CSS trop souvent trop tôt, il y aura évidemment des moments où la réutilisation a du sens. Il faut répondre à la question : *comment pouvons-nous réutiliser un style?*
 
-## How can we reuse a style?
+## Comment peut-on réutiliser un style ?
 
-If we want to reuse a style, one option would be to comma-delimit selectors inside a well-named file, which if you're into SASS is exactly what `@extend` does. For example, if multiple elements need red text, we could do this:
+Si nous voulons réutiliser un style, une option serait de délimiter par des virgules les sélecteurs à l'intérieur d'un fichier bien nommé, ce qui, si vous utilisez SASS est exactement ce que `@extend` fait. Par exemple, si plusieurs éléments ont besoin de texte rouge, nous pourrions le faire:
 
-	.someThing,
-	.anotherThing {
-	  color: red;
-	}
+    . someThing,
+    . anotherThing {
+      color: rouge;
+    }
 
-This approach should be used for convenience, not for performance. (If the abstraction only has one rule, we're simply exchanging one line of code for another.)
+Cette approche devrait être utilisée pour des raisons de commodité et non de performance. (Si l'abstraction n'a qu'une seule règle, nous échangeons simplement une ligne de code pour une autre.)
 
-If a selector deviates from the rules inside the abstraction, it should be removed from the list. Otherwise it could regress the other selectors and cause override issues.
+Si un sélecteur s'écarte des règles dans l'abstraction, il doit être supprimé de la liste. Sinon, il pourrait régresser les autres sélecteurs et causer des problèmes pour faire des surcharges.
 
-It's important to note that this is one of several techniques at our disposal. When a *thing* is well understood we can make use of other techniques, which we'll discuss in [Modules](/chapters/modules/), [State](/chapters/state/) and [Modifiers](/chapters/modifiers/).
+Il est important de noter qu'il s'agit d'une des nombreuses techniques à notre disposition. Lorsqu'une *chose* est bien comprise, nous pouvons utiliser d'autres techniques, dont nous discuterons dans [Modules](/chapters/modules/), [États](/chapters/states/) et [Modificateurs](/chapters/modifiers).
 
-## What about mixins?
+## Et les mixins ?
 
-Mixins provide the best of both worlds. At least in theory.
+Les Mixins offrent le meilleur des deux mondes. Du moins en théorie.
 
-Like utility classes, updating a mixin propagates to all instances. If we don't have a handle of what's using the mixin, we increase the risk of regression. Instead of updating a mixin, we can create another, but this causes redundancy.
+Comme les classes d'utilitaires, la mise à jour d'un mixin se propage à toutes les instances. Si nous n'avons pas la maîtrise de ce qui utilise le mixin, nous augmentons le risque de régression. Au lieu de mettre à jour un mixin, on peut en créer un autre, mais cela entraîne une redondance.
 
-Also, mixins easily end up with many rules, multiple parameters, and conditionality. This is complicated. Complicated is hard to maintain.
+De plus, les mixins finissent facilement avec de nombreuses règles, des paramètres multiples et la conditionnalité. C'est compliqué. La complexité est difficile à maintenir.
 
-To mitigate this complexity, we can create granular mixins, such as one for red text. At first this seems better. But isn't the declaration of a red mixin, the same as the rule itself i.e. `color: red`?
+Pour atténuer cette complexité, nous pouvons créer des mixins granulaires, par exemple un pour le texte rouge. Au début, ça semble mieux. Mais la déclaration d'un mixing rouge n'est-elle pas la même chose que la règle elle-même, c'est-à-dire `color: red` ?
 
-If we need to update the rule in multiple places, a search and replace might be all that's necessary. Also, when the red *mixin* changes to *orange*, its name will need updating anyway.
+Si nous avons besoin de mettre à jour la règle à plusieurs endroits, une recherche et un remplacement pourrait être tout ce qui est nécessaire. De plus, lorsque le *mixin* rouge devient *orange*, son nom devra être mis à jour de toute façon.
 
-With all that said, mixins can be very useful. We might, for example, want to apply *clearfix* rules across different elements and only within certain breakpoints. This is something that vanilla CSS can't do elegantly.
+Avec tout cela dit, les mixins peuvent être très utiles. Nous pourrions, par exemple, vouloir appliquer des règles *clearfix* à différents éléments et uniquement dans certains points de rupture. C'est quelque chose que le CSS de base ne peut pas faire élégamment.
 
-As such, mixins are not *bad*, it's just that we should use them judiciously.
+En tant que tels, les mixins ne sont pas *mauvais*, c'est juste que nous devrions les utiliser judicieusement.
 
-## What about performance?
+## Qu'en est-il de la performance ?
 
-We often overthink performance and get obsessed with tiny details. Even if CSS did total more than 100kb, there's little to gain from mindlessly striving for DRYness.
+Nous réfléchissons souvent trop à la performance et nous sommes obsédés par les petits détails. Même si le CSS totalisait plus de 100kb, il n'y a pas grand-chose à gagner à respecter DRY le plus possible.
 
-Making CSS small makes HTML big. CSS can always be cached. But HTML often contains dynamic and personalised content&mdash;so it can't be cached.
+Rendre le fichier CSS petit rend le fichier HTML grand. CSS peut toujours être mis en cache. Mais HTML contient souvent du contenu dynamique et personnalisé&mdash; donc il ne peut pas être mis en cache.
 
-The compression of a single image gives us a better return on investment. And as we've discussed, resolving other forms of redundancy improves maintainability *and* performance.
+La compression d'une seule image nous donne un meilleur retour sur investissement. Et comme nous en avons discuté, la résolution d'autres formes de redondance améliore la maintenabilité *et* la performance.
 
-As you'll see in later chapters, the conventions in this guide, mean CSS class names have repeated prefixes which works especially well with GZip.
+Comme vous le verrez dans les chapitres suivants, les conventions de ce guide, signifient que les noms de classes CSS ont des préfixes répétés qui fonctionnent particulièrement bien avec GZip.
 
-## Is this violating DRY principles?
+## Est-ce que c'est une violation des principes DRY ?
 
-Attempting to reuse, for example `float: left`, is akin to trying to reuse variable names in different Javascript objects. It's simply not in violation of DRY.
+Tenter de réutiliser, par exemple `float: left`, c'est comme essayer de réutiliser des noms de variables dans différents objets Javascript. Ce n'est tout simplement pas en violation de DRY.
 
-## Final thought
+## Pensée finale
 
-Striving for DRY leads to over-thought and over-engineered code. In doing so we make maintenance harder, not easier. Instead of obsessing over styles, we should focus on reusing tangible modules. Something we'll discuss in upcoming chapters.
+La recherche du DRY mène à un code trop réfléchi et trop élaboré. Ce faisant, nous rendons la maintenance plus difficile, pas plus facile. Au lieu d'être obsédés par les styles, nous devrions nous concentrer sur la réutilisation de modules tangibles. Quelque chose dont nous discuterons dans les prochains chapitres.
